@@ -1,0 +1,14 @@
+<a [routerLink]="'detalle-pokemon/' + pokemon._id">
+  <div class="card-pokemon">
+    <img src="../../assets/img/background.png" class="background-pokebola">
+    <div class="textos">
+      <div>{{pokemon.name}}</div>
+      <div>
+        <div class="tipo-pokemon" *ngFor="let t of pokemon.type">{{t}}</div>
+      </div>
+    </div>
+    <div class="contenedor-imagen">
+      <img class="imagen-pokemon" [src]="pokemon.img">
+    </div>
+  </div>
+</a>

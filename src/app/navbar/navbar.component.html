@@ -1,0 +1,117 @@
+<nav>
+  <fa-icon [icon]="faChevronLeft"></fa-icon>
+  <img id="logo" src="../../assets/img/pokemon.svg">
+  <img id="pokebola" src="../../assets/img/pokebola.png" (click)="open(content)">
+</nav>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <h1>{{pokemon.name}}</h1>
+		
+			<div class="mb-3">
+				<div class="mb-3">
+          <label for="name" class="form-label">Nombre del pokemon</label>
+          <input type="text" class="form-control" id="name" placeholder="Eje. Pikachu" [(ngModel)]="pokemon.name">
+        </div>
+        <div class="mb-3">
+          <label for="num" class="form-label">"num"</label>
+          <input type="text" class="form-control" id="num" placeholder="num" [(ngModel)]="pokemon.num">
+        </div>
+        <div class="mb-3">
+          <label for="num" class="form-label">Imagen</label>
+          <input type="text" class="form-control" id="imagen" placeholder="Imagen" [(ngModel)]="pokemon.img">
+        </div>
+        <div>Gender: </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="genero" id="femenio" value="F">
+          <label class="form-check-label" for="femenio">
+            Femenino
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="genero" id="masculino" value="M">
+          <label class="form-check-label" for="masculino">
+            Masculino
+          </label>
+        </div>
+        <div class="mt-3">Type: </div>
+        <div>
+          <div class="form-check">
+            <input class="clase-x form-check-input" type="checkbox" value="Fire" id="Fire">
+            <label class="form-check-label" for="Fire">
+              Fire
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="clase-x form-check-input" type="checkbox" value="Water" id="Water">
+            <label class="form-check-label" for="Water">
+              Water
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="clase-x form-check-input" type="checkbox" value="Electric" id="Electric">
+            <label class="form-check-label" for="Electric">
+              Electric
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="clase-x form-check-input" type="checkbox" value="Poison" id="Poison">
+            <label class="form-check-label" for="Poison">
+              Poison
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="clase-x form-check-input" type="checkbox" value="Grass" id="Grass">
+            <label class="form-check-label" for="Grass">
+              Grass
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="clase-x form-check-input" type="checkbox" value="Ground" id="Ground">
+            <label class="form-check-label" for="Ground">
+              Ground
+            </label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="height" class="form-label">"height"</label>
+          <input type="text" class="form-control" id="height" placeholder="height" [(ngModel)]="pokemon.height">
+        </div>
+        <div class="mb-3">
+          <label for="weight" class="form-label">"weight"</label>
+          <input type="text" class="form-control" id="weight" placeholder="weight" [(ngModel)]="pokemon.weight">
+        </div>
+        <div class="mb-3">
+          <label for="candy" class="form-label">"candy"</label>
+          <input type="text" class="form-control" id="candy" placeholder="candy" [(ngModel)]="pokemon.candy">
+        </div>
+        <div class="mb-3">
+          <label for="candy_count" class="form-label">"candy_count"</label>
+          <input type="text" class="form-control" id="candy_count" placeholder="candy_count" [(ngModel)]="pokemon.candy_count">
+        </div>
+        <div class="mb-3">
+          <label for="egg" class="form-label">"egg"</label>
+          <input type="text" class="form-control" id="egg" placeholder="egg" [(ngModel)]="pokemon.egg">
+        </div>
+        <div class="mb-3">
+          <label for="spawn_chance" class="form-label">"spawn_chance"</label>
+          <input type="text" class="form-control" id="spawn_chance" placeholder="spawn_chance" [(ngModel)]="pokemon.spawn_chance">
+        </div>
+        <div class="mb-3">
+          <label for="avg_spawns" class="form-label">"avg_spawns"</label>
+          <input type="text" class="form-control" id="avg_spawns" placeholder="avg_spawns" [(ngModel)]="pokemon.avg_spawns">
+        </div>
+        <div class="mb-3">
+          <label for="spawn_time" class="form-label">"spawn_time"</label>
+          <input type="text" class="form-control" id="spawn_time" placeholder="spawn_time" [(ngModel)]="pokemon.spawn_time">
+        </div>
+			</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="guardarPokemon()">Guardar</button>
+	</div>
+</ng-template>

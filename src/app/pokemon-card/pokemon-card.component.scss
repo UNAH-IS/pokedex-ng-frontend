@@ -1,0 +1,46 @@
+.card-pokemon {
+  color: white;
+  background-color: #111111;
+  border-radius: 25px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tipo-pokemon {
+  border-radius: 45px;
+  padding: 10px 20px;
+  background-color: #661504;
+  margin-bottom: 10px;
+  font-size: .7rem;
+}
+
+.imagen-pokemon {
+  width: 70px;
+  z-index: 100;
+}
+
+.contenedor-imagen, .textos {
+  flex: 1;
+}
+
+.contenedor-imagen {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.background-pokebola {
+  position: absolute;
+  right: -22px;
+  bottom: -24px;
+  width: 107px;
+  z-index: 99;
+  opacity: .4;
+  filter: opacity(0.5);
+}

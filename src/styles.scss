@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background-image: linear-gradient(to bottom, #ff2f03, #ff6745);
+  height: 100vh;
+}
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

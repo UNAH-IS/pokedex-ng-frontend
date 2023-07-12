@@ -1,0 +1,46 @@
+<!-- <p>El id del pokemonn a mostrar es {{id}}</p> -->
+<section id="detalle-pokemon" *ngIf="pokemon">
+  <div class="encabezado-detalle-pokemon">
+    <div class="titulo">
+      <h1 class="pokemon-name">{{pokemon.name}}</h1>
+      <h3 id="pokemon-num">#{{pokemon.num}}</h3>
+    </div>
+    <div class="tipos">
+      <div class="tipo" *ngFor="let t of pokemon.type">{{t}}</div>
+    </div>
+    <div class="imagen-pokemon">
+      <img src="{{pokemon.img}}" alt="">
+    </div>
+  </div>
+  <div class="cuerpo-detalles-pokemon">
+    <nav id="nav-secundario">
+      <div (click)="seleccionarOpcionMenu('about')" class="opcion" [ngClass]="{'active': opcionMenu=='about'}">About</div>
+      <div (click)="seleccionarOpcionMenu('stats')" class="opcion" [ngClass]="{'active': opcionMenu=='stats'}">Base Stats</div>
+      <div (click)="seleccionarOpcionMenu('evolutions')" class="opcion" [ngClass]="{'active': opcionMenu=='evolutions'}">Evolutions</div>
+      <div (click)="seleccionarOpcionMenu('moves')" class="opcion" [ngClass]="{'active': opcionMenu=='moves'}">Moves</div>
+    </nav>
+    <div class="contenido-detalle" id="about" *ngIf="opcionMenu=='about'">
+      <div>
+        <label>Candy</label>
+        <span id="pokemon-candy">{{pokemon.candy}}</span>
+        <label>Height</label>
+        <span id="pokemon-height">{{pokemon.height}}</span>
+        <label>Weight</label>
+        <span id="pokemon-weight">{{pokemon.weight}}</span>
+        <label>Weaknesses</label>
+        <span id="pokemon-weaknesses">{{pokemon.weaknesses}}</span>
+      </div>
+    </div>
+    <div class="contenido-detalle" *ngIf="opcionMenu=='stats'">
+      <div style="display: flex;align-items: center;">
+        <div>Spawn Chance</div>
+        <div class="bar-background">
+          <div class="bar-foreground" id="spawn-chance-bar" [style]="spawChancePercentage">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contenido-detalle" *ngIf="opcionMenu=='evolutions'">Evolutions</div>
+    <div class="contenido-detalle" *ngIf="opcionMenu=='moves'">Moves</div>
+  </div>
+</section>
