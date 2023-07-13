@@ -3,6 +3,11 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Pokemon } from 'src/models/pokemon.model';
 
+interface TipoPokemon {
+  type: string;
+  checked: boolean;
+}
+
 
 @Component({
   selector: 'app-navbar',
@@ -33,6 +38,37 @@ export class NavbarComponent {
     prev_evolution: [],
     next_evolution: []
   }
+  fireType:boolean;
+  types:TipoPokemon[] = [
+    {
+      type: "Fire",
+      checked: false
+    },
+    {
+      type: "Grass",
+      checked: false
+    },
+    {
+      type: "Poison",
+      checked: false
+    },
+    {
+      type: "Electric",
+      checked: false
+    },
+    {
+      type: "Water",
+      checked: false
+    },
+    {
+      type: "Ground",
+      checked: false
+    },
+    {
+      type: "Fairy",
+      checked: false
+    }
+  ];
 
   constructor(private modalService: NgbModal) {}
 
@@ -57,10 +93,21 @@ export class NavbarComponent {
 		}
 	}
 
-  guardarPokemon() {
-    console.log(this.pokemon);
-    fetch('localhost:3000/pokemones', {
-      method: 'POST'
-    })
+  async guardarPokemon() {
+    let tipos = this.types.filter(item => item.checked).map((item:TipoPokemon) => {
+        return item.type
+    });
+    this.pokemon.type = tipos;
+
+    let respuesta = await fetch('http://localhost:3004/pokemones', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.pokemon)
+    });
+
+    let respuestaJson = await respuesta.json();
+    console.log("Pokemon guardado", respuestaJson);
   }
 }
